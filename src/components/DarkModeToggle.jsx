@@ -14,7 +14,7 @@ const DarkModeToggle=({darkMode,toggleDarkMode})=>{
                 boxShadow:darkMode?"0 0 10px rgba(255,255,255,0.2)":"0 0 5px rgna(0,0,0,0.1)"
             }}
            
-        >{darkMode? "🌙 Dark Mode On":"☀️ Light Mode"}</button>
+        >{darkMode? "☀️":"🌙"}</button>
     );
 };
 
