@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import DarkModeToggle from "../components/DarkModeToggle";
 import ToDoItem from "../components/ToDoItem";
 
-const ToDoListPage=({todos, onDelete, onToggle, darkMode, toggleDarkMode})=>{
+const ToDoListPage=({todos, onDelete, onToggle, darkMode,user,onLogout, toggleDarkMode})=>{
     const navigate = useNavigate();
 
     const onEdit =(todo)=>{
@@ -15,11 +15,27 @@ const ToDoListPage=({todos, onDelete, onToggle, darkMode, toggleDarkMode})=>{
             minHeight:"100vh",
             padding:"20px",
         }}>
+            <h2>📝 Todo List</h2>
             <div style={{
-                display:"flex",justifyContent:"space-between"
-            }}>
-                <h2>📝 Todo List</h2>
+                display:"flex",alignItems:"center"}}>
                 <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+                
+                {user && (
+            <button
+              onClick={onLogout}
+              style={{
+                marginLeft: "10px",
+                padding: "10px 15px",
+                borderRadius: "6px",
+                border: "none",
+                backgroundColor: "#e74c3c",
+                color: "#fff",
+                cursor: "pointer",
+              }}
+            >
+              🔓 Logout
+            </button>
+          )}
             </div>
 
             <button 
